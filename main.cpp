@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QNetworkProxyFactory>
 #include <QQmlEngine>
 #include <QJSEngine>
 #include "AppFramework.h"
@@ -33,7 +34,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QCoreApplication::setOrganizationName("ESRI");
     QCoreApplication::setOrganizationDomain("esri.com");
-    QCoreApplication::setApplicationName("WebMap App");
+    QCoreApplication::setApplicationName("ArcGIS Sign In App");
+
+    QNetworkProxyFactory::setUseSystemConfiguration(true);
 
     QGuiApplication app(argc, argv);
 

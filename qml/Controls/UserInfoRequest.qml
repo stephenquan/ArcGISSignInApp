@@ -52,9 +52,10 @@ Item {
 
             if (error !== QtNetworkError.NoError) {
                 internal.error = error;
-                internal.errorString = qsTr("Network Error %1: %2")
+                internal.errorString = qsTr("Network Error %1: %2 (url: %3)")
                             .arg(error)
-                            .arg(QtNetworkError.stringify(error));
+                            .arg(QtNetworkError.stringify(error))
+                            .arg(JSON.stringify(url));
                 appWarn(qsTr("Error: UserInfoRequest: %1").arg(internal.errorString));
                 failed();
                 return;
