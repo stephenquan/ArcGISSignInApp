@@ -53,6 +53,7 @@ void NetworkRequest::send(const QVariant& body)
     setProperty("responseHeaders", QVariant());
     setProperty("readyState", ReadyStateEnum::OPENED);
     setProperty("error", NetworkErrorEnum::NoError);
+    setErrorText(QString());
 
     if (m_Method.compare("POST", Qt::CaseInsensitive) == 0)
     {
@@ -157,6 +158,7 @@ void NetworkRequest::onFinished()
     QByteArray responseBody = m_NetworkReply->readAll();
     setResponseBody(responseBody);
     setProperty("error", m_NetworkReply->error());
+    setErrorText(m_NetworkReply->errorString());
     setProperty("responseHeaders", convertHeaders(m_NetworkReply->rawHeaderPairs()));
 
     disconnectSignals();
@@ -249,6 +251,22 @@ QVariantMap NetworkRequest::convertHeaders(const QList<QNetworkReply::RawHeaderP
         headers[key] = value;
     }
     return headers;
+}
+
+//----------------------------------------------------------------------
+//
+//----------------------------------------------------------------------
+
+void NetworkRequest::setErrorText(const QString& errorText)
+{
+    if (m_ErrorText == errorText)
+    {
+        return;
+    }
+
+    m_ErrorText = errorText;
+
+    emit errorTextChanged();
 }
 
 //----------------------------------------------------------------------

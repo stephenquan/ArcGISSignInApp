@@ -8,8 +8,6 @@ import "Pages"
 Page {
     id: signInApp
 
-    anchors.fill: parent
-
     property alias currentPage: stackView.currentItem
     property double currentTime: Date.now()
     readonly property var currentPortal: getCurrentPortal(appProperties.portals)
@@ -27,7 +25,7 @@ Page {
 
         anchors.fill: parent
 
-        initialItem: MainPage {
+        initialItem: StartPage {
         }
     }
 

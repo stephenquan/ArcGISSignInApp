@@ -25,6 +25,7 @@
         <file>qml/Images/envelope-32.svg</file>
         <file>qml/Images/gear-32.svg</file>
         <file>qml/Images/hamburger-32.svg</file>
+        <file>qml/Images/plus-32.svg</file>
         <file>qml/Images/sign-in-32.svg</file>
         <file>qml/Images/sign-out-32.svg</file>
         <file>qml/Images/refresh-32.svg</file>
@@ -40,6 +41,9 @@
         <file>qml/Pages/AddPortalPage.qml</file>
         <file>qml/Pages/AboutPage.qml</file>
         <file>qml/Pages/SignInPage.qml</file>
+        <file>qml/Pages/StartPage.qml</file>
+        <file>qml/Pages/SelectAccountPage.qml</file>
+        <file>qml/Pages/AccountDelegate.qml</file>
         <file>qml/Pages/MainPage.qml</file>
         <file>qml/Pages/UserPage.qml</file>
         <file>qml/Pages/SelectMapPage.qml</file>

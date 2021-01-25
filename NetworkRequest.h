@@ -32,6 +32,7 @@ class NetworkRequest : public QObject
     Q_PROPERTY(QString responseText READ responseText NOTIFY responseChanged)
     Q_PROPERTY(ReadyStateEnum::ReadyState readyState MEMBER m_ReadyState NOTIFY readyStateChanged)
     Q_PROPERTY(NetworkErrorEnum::NetworkError error MEMBER m_NetworkError NOTIFY errorChanged)
+    Q_PROPERTY(QString errorText READ errorText NOTIFY errorTextChanged)
 
 public:
     NetworkRequest(QObject* parent = nullptr);
@@ -47,6 +48,7 @@ signals:
     void responseTypeChanged();
     void readyStateChanged();
     void errorChanged();
+    void errorTextChanged();
 
 protected:
     QUrl m_Url;
@@ -58,6 +60,7 @@ protected:
     QByteArray m_ResponseBody;
     ReadyStateEnum::ReadyState m_ReadyState;
     NetworkErrorEnum::NetworkError m_NetworkError;
+    QString m_ErrorText;
 
     QNetworkAccessManager* networkAccessManager() const;
     void get(const QVariant& body);
@@ -70,6 +73,9 @@ protected:
     void setResponseBody(const QByteArray& response);
 
     static QVariantMap convertHeaders(const QList<QNetworkReply::RawHeaderPair>& rawHeaderPairs);
+
+    QString errorText() const { return m_ErrorText; }
+    void setErrorText(const QString& errorText);
 
     void connectSignals();
     void disconnectSignals();

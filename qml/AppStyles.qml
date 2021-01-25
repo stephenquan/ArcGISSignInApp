@@ -4,6 +4,7 @@ QtObject {
     id: styles
 
     // App Global
+    property color iconColor: "#e0e0e0"
     property int iconSize: 32
     property int smallIconSize: 24
     property double textPointSize: 12
@@ -31,8 +32,9 @@ QtObject {
     property double frameRadius: 5
 
     // Lists
-    property color listOddBackgroundColor: "#e0e0e0"
-    property color listEvenBackgroundColor: "#c0c0c0"
+    property color listOddBackgroundColor: "#f0f0f0"
+    property color listEvenBackgroundColor: "#f8f8f8"
+    property color listBackgroundColor: "#e0e0e0"
     property color listSelectedBackgroundColor: "#60a0a0"
     property color listSelectedTextColor: "white"
     property color listTextColor: "black"
